@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CopilotKit } from "@copilotkit/react-core";
 import "@copilotkit/react-ui/styles.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
-  title: "ChatMaster - AI Agent Ecosystem",
-  description: "Stateful AI agent dashboard with Realtime collaboration.",
+  title: "ChatMaster — AI Agent Ecosystem",
+  description:
+    "Stateful AI agent dashboard with real-time collaboration, dynamic analytics canvas, and multi-agent orchestration.",
 };
 
 export default function RootLayout({
@@ -17,16 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} bg-neutral-950 text-white min-h-screen`}>
-        {/* Explicitly configuring CopilotKit for AG-UI and setting runtimeUrl */}
-        <CopilotKit 
-          runtimeUrl="/api/chat/stream"
-          agent="ChatMaster Supervisor"
-          properties={{ protocol: "ag-ui" }}
-        >
-          {children}
-        </CopilotKit>
+    <html lang="en" className={`${inter.variable} dark`}>
+      <body className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-[var(--font-sans)] antialiased">
+        {children}
       </body>
     </html>
   );
