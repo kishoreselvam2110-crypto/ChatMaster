@@ -18,3 +18,4 @@ export const useCanvasStore = create<CanvasState>((set) => ({
   setChartData: (data) => set({ chartData: data }),
   setCurrentView: (view) => set({ currentView: view }),
 }));
+
