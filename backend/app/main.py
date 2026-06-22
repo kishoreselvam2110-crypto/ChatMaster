@@ -10,6 +10,10 @@ load_dotenv()
 
 app = FastAPI(title="ChatMaster Backend")
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to ChatMaster Backend API. The server is up and running!"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
